@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Hi</h1>
+    </header>
+    <h2>jquery is awesome</h2>
+    <h3>Practice makes perfect</h3>
+    <div class="a1">
+      <p id="asd">Today is good day!</p>
+    </div>
+    <button class="b2">Demo parent-child</button>
+    <div class="a2">
+      <p>jquery is good</p>
+      <button class="b1">Click to animate above line</button>
+    </div>
+    <script>
+      $(document).ready(function () {
+        $("*").css("background-color", "aqua");
+        $(".b2").click(function () {
+          $("div>p").html("<b> Parent-child </b>");
+        });
+        $("#asd").css("background-color", "yellow");
+        //  $(".a1,.a2")
+        // $("p:first") $("p:last") $("p:even") $("p:odd")
+        //$("p:first-child") $("p:first-of-type")
+        // $("p:last-child") $("p:last-of-type")
+        // $("p:nth-child(2)") $("p:nth-last-child(2)") $("p:nth-of-type(2)") $("p:nth-last-of-type(2)")
+        $(":header:not(h1)").css("border", "5px red solid");
+        $(".b1").click(function () {
+          $("p").css("background-color", "yellow");
+          $("p:eq(1)").animate({ width: "30%" }, "slow");
+        });
+      });
+    </script>
+  </body>
+</html>

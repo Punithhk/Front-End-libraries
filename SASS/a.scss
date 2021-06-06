@@ -1,0 +1,11 @@
+@import 'partial';
+
+body{
+    background-color: chartreuse;
+    @mixin pol {
+        background-color: aqua;
+        color: blue;
+        border-radius: 12px;
+
+    }
+}

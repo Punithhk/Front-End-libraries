@@ -1,0 +1,51 @@
+﻿Bootstrap is a free front-end framework for faster and easier web development
+Bootstrap includes HTML and CSS based design templates for typography, forms, buttons, tables, navigation, modals, image carousels and many other, as well as optional JavaScript plugins
+Bootstrap also gives you the ability to easily create responsive designs
+
+What is Responsive Web Design?
+
+Responsive web design is about creating web sites which automatically adjust themselves to look good on all devices, from small phones to large desktops.
+
+Fortunately, with Bootstrap, all we need to do is add the img-responsive class to your image. Do this, and the image should perfectly fit the width of your page.
+
+class = "text-center text-primary" 
+
+classes = 
+"btn btn-default btn-block btn-primary btn-info btn-danger"
+
+Bootstrap's col-md-* class. 
+Here, md means medium, and * is a number specifying how many columns wide the element should be
+
+use col-xs-*, where xs means extra small (like an extra-small mobile phone screen), and * is the number of columns specifying how many columns wide the element should be.
+
+<div class="row"> element, then each of them within a <div class="col-xs-4"> element.
+
+By using the inline span element, you can put several elements on the same line, and even style different parts of the same line differently.
+<p>Things cats <span class="text-danger">love:</span></p>
+
+Bootstrap uses grid columns so, specify the div class=row 
+indside that specify the div class=col-xs-*; 
+
+You can include Font Awesome in any app by adding the following code to the top of your HTML:
+<link rel="stylesheet" hre–f="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+The i element was originally used to make other elements italic, but is now commonly used for icons. You can add the Font Awesome classes to the i element to turn it into an icon,
+<i class="fas fa-info-circle"></i>
+Note that the span element is also acceptable for use with icons.
+<i class="fas fa-thumbs-up"></i>
+
+Font Awesome is a convenient library of icons. These icons can be web fonts or vector graphics. These icons are treated just like fonts. You can specify their size using pixels, and they will assume the font size of their parent HTML elements.
+fas fa-info-circle, fa-trash,
+fa fa-paper-plane (telegram icon)
+we can apply the grid column even for form elements.
+
+class= "form-control"
+
+All textual <input>, <textarea>, and <select> elements with the class .form-control have a width of 100%.
+
+<div class="container-fluid
+<div class="well"></div> 
+Bootstrap has a class called well that can create a visual sense of depth for your columns.
+
+<button class="well"></button> 
+<button class="target"> 

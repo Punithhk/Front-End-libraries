@@ -1,0 +1,397 @@
+React is a JavaScript library for building user interfaces.
+React is used to build single page applications.
+React allows us to create reusable UI components.
+
+What is React?
+React is a JavaScript library created by Facebook.
+React is a tool for building UI components.
+
+How does React Work?
+React creates a VIRTUAL DOM in memory.
+
+Instead of manipulating the browser's DOM directly, React creates a virtual DOM in memory, where it does all the necessary manipulating, before making the changes in the browser DOM.
+
+React only changes what needs to be changed!
+
+React finds out what changes have been made, and changes only what needs to be changed.
+
+React.JS History
+Current version of React.JS is V16.8.6 (March 2019).
+
+Initial Release to the Public (V0.3.0) was in July 2013.
+
+React.JS was first used in 2011 for Facebook's Newsfeed feature.
+
+Facebook Software Engineer, Jordan Walke, created it.
+
+The create-react-app version 2.0 package was released in October 2018.
+
+Create-react-app version 2.0 supports Babel 7, webpack 4, and Jest23.
+
+<script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+
+React Render HTML
+React's goal is in many ways to render HTML in a web page.
+React renders HTML to the web page by using a function called ReactDOM.render().
+The Render Function
+The ReactDOM.render() function takes two arguments, HTML code and an HTML element.
+The purpose of the function is to display the specified HTML code inside the specified HTML element.
+Example
+Display a paragraph inside the "root" element:
+ReactDOM.render(<p>Hello</p>, document.getElementById('root'));
+The result is displayed in the <div id="root"> element:
+<body>
+  <div id="root"></div>
+</body>
+
+-----------------------------------------
+
+React JSX
+What is JSX?
+JSX stands for JavaScript XML.
+JSX allows us to write HTML in React.
+JSX makes it easier to write and add HTML in React.
+
+Coding JSX
+JSX allows us to write HTML elements in JavaScript and place them in the DOM without any createElement()  and/or appendChild() methods.
+JSX converts HTML tags into react elements.
+You are not required to use JSX, but JSX makes it easier to write React applications.
+Let us demonstrate with two examples, the first uses JSX and the second does not:
+
+Example 1
+JSX:
+const myelement = <h1>I Love JSX!</h1>;
+ReactDOM.render(myelement, document.getElementById('root'));
+
+Example 2
+Without JSX:
+const myelement = React.createElement('h1', {}, 'I do not use JSX!');
+ReactDOM.render(myelement, document.getElementById('root'));
+As you can see in the first example, JSX allows us to write HTML directly within the JavaScript code.
+JSX is an extension of the JavaScript language based on ES6, and is translated into regular JavaScript at runtime.
+
+Expressions in JSX
+With JSX you can write expressions inside curly braces { }.
+The expression can be a React variable, or property, or any other valid JavaScript expression. JSX will execute the expression and return the result:
+Example
+Execute the expression 5 + 5:
+const myelement = <h1>React is {5 + 5} times better with JSX</h1>;
+Inserting a Large Block of HTML
+To write HTML on multiple lines, put the HTML inside parentheses:
+Example
+Create a list with three list items:
+const myelement = (
+  <ul>
+    <li>Apples</li>
+    <li>Bananas</li>
+    <li>Cherries</li>
+  </ul>
+);
+One Top Level Element
+The HTML code must be wrapped in ONE top level element.
+So if you like to write two headers, you must put them inside a parent element, like a div element
+Example
+Wrap two headers inside one DIV element:
+const myelement = (
+  <div>
+    <h1>I am a Header.</h1>
+    <h1>I am a Header too.</h1>
+  </div>
+);
+JSX will throw an error if the HTML is not correct, or if the HTML misses a parent element.
+Elements Must be Closed
+JSX follows XML rules, and therefore HTML elements must be properly closed.
+Example
+Close empty elements with />
+const myelement = <input type="text" />;
+JSX will throw an error if the HTML is not properly closed.
+
+React Components
+Components are like functions that return HTML elements.
+
+React Components
+Components are independent and reusable bits of code. They serve the same purpose as JavaScript functions, but work in isolation and return HTML via a render() function.
+
+Components come in two types, Class components and Function components, in this tutorial we will concentrate on Class components.
+
+Define an HTML Class in JSX
+Now that you're getting comfortable writing JSX, you may be wondering how it differs from HTML.
+
+So far, it may seem that HTML and JSX are exactly the same.
+
+One key difference in JSX is that you can no longer use the word class to define HTML classes. This is because class is a reserved word in JavaScript. Instead, JSX uses className.
+
+In fact, the naming convention for all HTML attributes and event references in JSX become camelCase. For example, a click event in JSX is onClick, instead of onclick. Likewise, onchange becomes onChange. While this is a subtle difference, it is an important one to keep in mind moving forward.
+
+Learn About Self-Closing JSX Tags
+So far, you’ve seen how JSX differs from HTML in a key way with the use of className vs. class for defining HTML classes.
+
+Another important way in which JSX differs from HTML is in the idea of the self-closing tag.
+
+In HTML, almost all tags have both an opening and closing tag: <div></div>; the closing tag always has a forward slash before the tag name that you are closing. However, there are special instances in HTML called “self-closing tags”, or tags that don’t require both an opening and closing tag before another tag can start.
+
+For example the line-break tag can be written as <br> or as <br />, but should never be written as <br></br>, since it doesn't contain any content.
+
+In JSX, the rules are a little different. Any JSX element can be written with a self-closing tag, and every element must be closed. The line-break tag, for example, must always be written as <br /> in order to be valid JSX that can be transpiled. A <div>, on the other hand, can be written as <div /> or <div></div>. The difference is that in the first syntax version there is no way to include anything in the <div />. You will see in later challenges that this syntax is useful when rendering React components.
+
+Create a React Component
+The other way to define a React component is with the ES6 class syntax. In the following example, Kitten extends React.Component:
+
+class Kitten extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <h1>Hi</h1>
+    );
+  }
+}
+This creates an ES6 class Kitten which extends the React.Component class. So the Kitten class now has access to many useful React features, such as local state and lifecycle hooks. Don't worry if you aren't familiar with these terms yet, they will be covered in greater detail in later challenges. Also notice the Kitten class has a constructor defined within it that calls super(). It uses super() to call the constructor of the parent class, in this case React.Component. The constructor is a special method used during the initialization of objects that are created with the class keyword. It is best practice to call a component's constructor with super, and pass props to both. This makes sure the component is initialized properly. For now, know that it is standard for this code to be included. Soon you will see other uses for the constructor as well as props.
+
+
+Create a Component with Composition
+Now we will look at how we can compose multiple React components together. Imagine you are building an app and have created three components: a Navbar, Dashboard, and Footer.
+
+To compose these components together, you could create an App parent component which renders each of these three components as children. To render a component as a child in a React component, you include the component name written as a custom HTML tag in the JSX. For example, in the render method you could write:
+
+return (
+ <App>
+  <Navbar />
+  <Dashboard />
+  <Footer />
+ </App>
+)
+When React encounters a custom HTML tag that references another component (a component name wrapped in < /> like in this example), it renders the markup for that component in the location of the tag. This should illustrate the parent/child relationship between the App component and the Navbar, Dashboard, and Footer.
+
+const ChildComponent = () => {
+  return (
+    <div>
+      <p>I am the child</p>
+    </div>
+  );
+};
+
+class ParentComponent extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h1>I am the parent</h1>
+       <ChildComponent />
+      </div>
+    );
+  }
+};
+
+Render a Class Component to the DOM
+You may remember using the ReactDOM API in an earlier challenge to render JSX elements to the DOM. The process for rendering React components will look very similar. The past few challenges focused on components and composition, so the rendering was done for you behind the scenes. However, none of the React code you write will render to the DOM without making a call to the ReactDOM API.
+
+Here's a refresher on the syntax: ReactDOM.render(componentToRender, targetNode). The first argument is the React component that you want to render. The second argument is the DOM node that you want to render that component within.
+
+React components are passed into ReactDOM.render() a little differently than JSX elements. For JSX elements, you pass in the name of the element that you want to render. However, for React components, you need to use the same syntax as if you were rendering a nested component, for example ReactDOM.render(<ComponentToRender />, targetNode). You use this syntax for both ES6 class components and functional components.
+
+Pass Props to a Stateless Functional Component
+The previous challenges covered a lot about creating and composing JSX elements, functional components, and ES6 style class components in React. With this foundation, it's time to look at another feature very common in React: props. In React, you can pass props, or properties, to child components. Say you have an App component which renders a child component called Welcome which is a stateless functional component. You can pass Welcome a user property by writing:
+
+<App>
+  <Welcome user='Mark' />
+</App>
+You use custom HTML attributes created by you and supported by React to be passed to the component. In this case, the created property user is passed to the component Welcome. Since Welcome is a stateless functional component, it has access to this value like so:
+
+const Welcome = (props) => <h1>Hello, {props.user}!</h1>
+It is standard to call this value props and when dealing with stateless functional components, you basically consider it as an argument to a function which returns JSX. You can access the value of the argument in the function body. With class components, you will see this is a little different.
+
+ <CurrentDate date={Date()} />
+  <p>The current date is:{props.date} </p>
+
+Pass an Array as Props
+The last challenge demonstrated how to pass information from a parent component to a child component as props or properties. This challenge looks at how arrays can be passed as props. To pass an array to a JSX element, it must be treated as JavaScript and wrapped in curly braces.
+
+<ParentComponent>
+  <ChildComponent colors={["green", "blue", "red"]} />
+</ParentComponent>
+The child component then has access to the array property colors. Array methods such as join() can be used when accessing the property. const ChildComponent = (props) => <p>{props.colors.join(', ')}</p> This will join all colors array items into a comma separated string and produce: <p>green, blue, red</p> Later, we will learn about other common methods to render arrays of data in React.
+
+Use Default Props
+React also has an option to set default props. You can assign default props to a component as a property on the component itself and React assigns the default prop if necessary. This allows you to specify what a prop value should be if no value is explicitly provided. For example, if you declare MyComponent.defaultProps = { location: 'San Francisco' }, you have defined a location prop that's set to the string San Francisco, unless you specify otherwise. React assigns default props if props are undefined, but if you pass null as the value for a prop, it will remain null.
+
+Override Default Props
+The ability to set default props is a useful feature in React. The way to override the default props is to explicitly set the prop values for a component.
+
+To override a default props value, the syntax to be followed is
+<Component propsName={Value}/>
+
+Use PropTypes to Define the Props You Expect
+React provides useful type-checking features to verify that components receive props of the correct type. For example, your application makes an API call to retrieve data that you expect to be in an array, which is then passed to a component as a prop. You can set propTypes on your component to require the data to be of type array. This will throw a useful warning when the data is of any other type.
+
+It's considered a best practice to set propTypes when you know the type of a prop ahead of time. You can define a propTypes property for a component in the same way you defined defaultProps. Doing this will check that props of a given key are present with a given type. Here's an example to require the type function for a prop called handleClick:
+
+MyComponent.propTypes = { handleClick: PropTypes.func.isRequired }
+In the example above, the PropTypes.func part checks that handleClick is a function. Adding isRequired tells React that handleClick is a required property for that component. You will see a warning if that prop isn't provided. Also notice that func represents function. Among the seven JavaScript primitive types, function and boolean (written as bool) are the only two that use unusual spelling. In addition to the primitive types, there are other types available. For example, you can check that a prop is a React element. Please refer to the documentation for all of the options.
+
+Note: As of React v15.5.0, PropTypes is imported independently from React, like this: import PropTypes from 'prop-types';
+
+
+To set a propTypes, the syntax to be followed is
+
+itemName.propTypes = {
+  props: PropTypes.dataType.isRequired
+};
+Solutions
+Solution 1 (Click to Show/Hide)
+Following the Syntax, the following code should be set below the given code for the quantity props of Items component
+
+Items.propTypes = {
+  quantity: PropTypes.number.isRequired
+};
+
+Access Props Using this.props
+The last several challenges covered the basic ways to pass props to child components. But what if the child component that you're passing a prop to is an ES6 class component, rather than a stateless functional component? The ES6 class component uses a slightly different convention to access props.
+
+Anytime you refer to a class component within itself, you use the this keyword. To access props within a class component, you preface the code that you use to access it with this. For example, if an ES6 class component has a prop called data, you write {this.props.data} in JSX.
+
+A stateless functional component is any function you write which accepts props and returns JSX. A stateless component, on the other hand, is a class that extends React.Component, but does not use internal state
+
+Finally, a stateful component is a class component that does maintain its own internal state. You may see stateful components referred to simply as components or React components.
+
+A common pattern is to try to minimize statefulness and to create stateless functional components wherever possible. This helps contain your state management to a specific area of your application. In turn, this improves development and maintenance of your app by making it easier to follow how changes to state affect its behavior.
+
+Create a Stateful Component
+One of the most important topics in React is state. State consists of any data your application needs to know about, that can change over time. You want your apps to respond to state changes and present an updated UI when necessary. React offers a nice solution for the state management of modern web applications.
+
+You create state in a React component by declaring a state property on the component class in its constructor. This initializes the component with state when it is created. The state property must be set to a JavaScript object. Declaring it looks like this:
+
+this.state = {
+
+}
+You have access to the state object throughout the life of your component. You can update it, render it in your UI, and pass it as props to child components. The state object can be as complex or as simple as you need it to be. Note that you must create a class component by extending React.Component in order to create state like this.
+
+Render State in the User Interface
+Once you define a component's initial state, you can display any part of it in the UI that is rendered. If a component is stateful, it will always have access to the data in state in its render() method. You can access the data with this.state.
+
+If you want to access a state value within the return of the render method, you have to enclose the value in curly braces.
+
+state is one of the most powerful features of components in React. It allows you to track important data in your app and render a UI in response to changes in this data. If your data changes, your UI will change. React uses what is called a virtual DOM, to keep track of changes behind the scenes. When state data updates, it triggers a re-render of the components using that data - including child components that received the data as a prop. React updates the actual DOM, but only where necessary. This means you don't have to worry about changing the DOM. You simply declare what the UI should look like.
+
+Note that if you make a component stateful, no other components are aware of its state. Its state is completely encapsulated, or local to that component, unless you pass state data to a child component as props. This notion of encapsulated state is very important because it allows you to write certain logic, then have that logic contained and isolated in one place in your code.
+
+Render State in the User Interface Another Way
+There is another way to access state in a component. In the render() method, before the return statement, you can write JavaScript directly. For example, you could declare functions, access data from state or props, perform computations on this data, and so on. Then, you can assign any data to variables, which you have access to in the return statement.
+
+Set State with this.setState
+The previous challenges covered component state and how to initialize state in the constructor. There is also a way to change the component's state. React provides a method for updating component state called setState. You call the setState method within your component class like so: this.setState(), passing in an object with key-value pairs. The keys are your state properties and the values are the updated state data. For instance, if we were storing a username in state and wanted to update it, it would look like this:
+
+this.setState({
+  username: 'Lewis'
+});
+React expects you to never modify state directly, instead always use this.setState() when state changes occur. Also, you should note that React may batch multiple state updates in order to improve performance. What this means is that state updates through the setState method can be asynchronous. There is an alternative syntax for the setState method which provides a way around this problem. This is rarely needed but it's good to keep it in mind!
+
+Bind 'this' to a Class Method
+In addition to setting and updating state, you can also define methods for your component class. A class method typically needs to use the this keyword so it can access properties on the class (such as state and props) inside the scope of the method. There are a few ways to allow your class methods to access this.
+
+One common way is to explicitly bind this in the constructor so this becomes bound to the class methods when the component is initialized. You may have noticed the last challenge used this.handleClick = this.handleClick.bind(this) for its handleClick method in the constructor. Then, when you call a function like this.setState() within your class method, this refers to the class and will not be undefined.
+
+Note: The this keyword is one of the most confusing aspects of JavaScript but it plays an important role in React. Although its behavior here is totally normal, these lessons aren't the place for an in-depth review of this so please refer to other lessons if the above is confusing!
+
+this.handleClick = this.handleClick.bind(this);
+
+------------------------------------------------------------------
+
+Use State to Toggle an Element
+Sometimes you might need to know the previous state when updating the state. However, state updates may be asynchronous - this means React may batch multiple setState() calls into a single update. This means you can't rely on the previous value of this.state or this.props when calculating the next value. So, you should not use code like this:
+
+this.setState({
+  counter: this.state.counter + this.props.increment
+});
+Instead , you should pass setState a function that allows you to access state and props. Using a function with setState guarantees you are working with the most current values of state and props. This means that the above should be rewritten as:
+
+this.setState((state, props) => ({
+  counter: state.counter + props.increment
+}));
+You can also use a form without props if you need only the state:
+
+this.setState(state => ({
+  counter: state.counter + 1
+}));
+Note that you have to wrap the object literal in parentheses, otherwise JavaScript thinks it's a block of code.
+
+
+Create a Controlled Input
+Your application may have more complex interactions between state and the rendered UI. For example, form control elements for text input, such as input and textarea, maintain their own state in the DOM as the user types. With React, you can move this mutable state into a React component's state. The user's input becomes part of the application state, so React controls the value of that input field. Typically, if you have React components with input fields the user can type into, it will be a controlled input form.
+
+Problem Explanation
+Here the idea is to create a controlled input where the text updates from your state, not from the browser.
+
+So to begin with we have a skeleton in which we have a class named ControlledInput and a state variable named input. Now all you need to do is take that state and when a change in the input box is observed trigger a function that changes the value inside that input box and in the paragraph below it.
+
+So you first step will be making a function that changes the state variable input.
+
+
+handleChange(event) {
+    this.setState({
+      input: event.target.value
+    });
+}
+Now your next step will involve creating an input box and trigger it when someone types anything. Luckily we have an event called onChange() to serve this purpose.
+
+PS - Here is another way to bind this into a function
+
+<input onChange = {this.handleChange.bind(this)}/>
+But this just won’t serve your purpose. Although you might feel that its working. So what’s happening here is text updates from the browser not the state. So to correct this we’ll add a value attribute and set it to this.state.input to the input element which will make the input get controlled by state.
+
+<input value = {this.state.input} onChange = {this.handleChange.bind(this)}/>
+It can be a bit hard to digest but to make things further clear try removing the entire onChange thing so your code looks like this
+
+
+<input value = {this.state.input}/>
+Now run the tests again are you able to type anything?
+
+The answer to it will be “NO” since your input box is getting value from the state variable input since there is no change in the state input(an empty string initially) which will only happen when you trigger the function handleChange() which will only happen when you have an event handler like onChange() hence the string inside the input box will remain as it is i.e, an empty string.
+
+---------------------------------------------------------------------------------------------------------------
+Create a Controlled Form
+The last challenge showed that React can control the internal state for certain elements like input and textarea, which makes them controlled components. This applies to other form elements as well, including the regular HTML form element.
+
+Note: You also must call event.preventDefault() in the submit handler, to prevent the default form submit behavior which will refresh the web page.
+Problem Explanation
+Creating a controlled form is the same process as creating a controlled input, except you need to handle a submit event.
+
+Hints
+Hint 1
+Create a controlled input that stores its value in state, so that there is a single source of truth. This is what you did in the previous challenge. Create an input element, set its value attribute to the input variable located in state. Remember, state can be accessed by this.state. Next, set the input element’s onChange attribute to call the function ‘handleChange’.
+
+Hint 2
+Next, create the handleSubmit method for your component. First, because your form is submitting you will have to prevent the page from refreshing. Second, call the setState() method, passing in an object of the different key-value pairs that you want to change. In this case, you want to set ‘submit’ to the value of the variable ‘input’ and set ‘input’ to an empty string.
+
+Hint 3
+Now that your data is being handled in state, we can use this data. Create an h1 element. Inside of your h1 element, put the current value of ‘submit’. Remember, ‘submit’ is located within state so you’ll need to use this.state. Additionally, placing the variable within JSX requires curly braces { } because it is JavaScript.
+
+
+Pass State as Props to Child Components
+You saw a lot of examples that passed props to child JSX elements and child React components in previous challenges. You may be wondering where those props come from. A common pattern is to have a stateful component containing the state important to your app, that then renders child components. You want these components to have access to some pieces of that state, which are passed in as props.
+
+For example, maybe you have an App component that renders a Navbar, among other components. In your App, you have state that contains a lot of user information, but the Navbar only needs access to the user's username so it can display it. You pass that piece of state to the Navbar component as a prop.
+
+This pattern illustrates some important paradigms in React. The first is unidirectional data flow. State flows in one direction down the tree of your application's components, from the stateful parent component to child components. The child components only receive the state data they need. The second is that complex stateful apps can be broken down into just a few, or maybe a single, stateful component. The rest of your components simply receive state from the parent as props, and render a UI from that state. It begins to create a separation where state management is handled in one part of code and UI rendering in another. This principle of separating state logic from UI logic is one of React's key principles. When it's used correctly, it makes the design of complex, stateful applications much easier to manage.
+
+Pass a Callback as Props
+You can pass state as props to child components, but you're not limited to passing data. You can also pass handler functions or any method that's defined on a React component to a child component. This is how you allow child components to interact with their parent components. You pass methods to a child just like a regular prop. It's assigned a name and you have access to that method name under this.props in the child component.
+
+Use the Lifecycle Method componentWillMount
+React components have several special methods that provide opportunities to perform actions at specific points in the lifecycle of a component. These are called lifecycle methods, or lifecycle hooks, and allow you to catch components at certain points in time. This can be before they are rendered, before they update, before they receive props, before they unmount, and so on. Here is a list of some of the main lifecycle methods: componentWillMount() componentDidMount() shouldComponentUpdate() componentDidUpdate() componentWillUnmount() The next several lessons will cover some of the basic use cases for these lifecycle methods.
+
+Note: The componentWillMount Lifecycle method will be deprecated in a future version of 16.X and removed in version 17. (Source)
+
+The componentWillMount() method is called before the render() method when a component is being mounted to the DOM
+
+Use the Lifecycle Method componentDidMount
+Most web developers, at some point, need to call an API endpoint to retrieve data. If you're working with React, it's important to know where to perform this action.
+
+The best practice with React is to place API calls or any calls to your server in the lifecycle method componentDidMount(). This method is called after a component is mounted to the DOM. Any calls to setState() here will trigger a re-rendering of your component. When you call an API in this method, and set your state with the data that the API returns, it will automatically trigger an update once you receive the data

@@ -1,0 +1,94 @@
+Trying to create  React project 
+without using create-react-app. 
+
+npm init -y //generates package.json file
+
+npm install react react-dom serve 
+// gives the node modules, package-lock.json
+
+npm install --save-dev webpack webpack-cli
+
+We’ll need babel-loader and
+@babel/core:
+npm install babel-loader @babel/core --save-dev
+
+“Hey Babel. If
+you see some ESNext syntax here, go ahead and transform that code into syntax we’re
+sure the browser understands. If you see some JSX, transform that too.” Start by
+installing the presets:
+npm install @babel/preset-env @babel/preset-react --save-dev
+
+Webpack is run statically. Typically, bundles are created before the app is deployed to
+the server. You can run it from the command line using npx:
+Intro to webpack | 93
+
+npx webpack --mode development
+Webpack will either succeed and create a bundle or fail and show you an error
+
+"build": "webpack --mode production"
+  in scripts of package.json
+
+npm run build
+// getting 1 error
+
+dist folder contains files we want to run on web server
+
+Bundling our code into a single file can cause some setbacks when it comes time to
+debug the application in the browser. We can eliminate this problem by providing a
+source map. A source map is a file that maps a bundle to the original source files.
+With webpack, all we have to do is add a couple lines to our webpack.config.js file.
+
+--------------------------------------
+npm i react-icons
+
+
+useref is beautiful, it can be used to create 
+uncontrolled Components 
+
+In React, a ref is an object that stores values for the lifetime
+of a component. There are several use cases that involve using refs. In this section,
+we’ll look at how we can access a DOM node directly with a ref.
+
+
+-----------------------------------------
+Hooks 
+
+useState
+useMemo
+useEffect
+useLayoutEffect 
+useCallback
+
+
+Rules of hooks 
+Hooks only run in the scope of a component
+It’s a good idea to break functionality out into multiple Hooks
+Hooks should only be called at the top level
+  Hooks should be used at the top level of a React function. They cannot be placed
+into conditional statements, loops, or nested functions
+PureComponent is only for class components;
+React.memo is only for function components.
+
+
+functions like 
+
+memo
+reducer 
+
+------------------------
+Tokens can also be obtained from third parties like GitHub or
+Facebook using with an open standard protocol called OAuth.
+The useState hook is used to store the response in state, and
+the useEffect hook is used to make the fetch request.
+
+Never do
+Monotonous BoilerPlate
+
+
+----------------------------------------
+npm i faker
+npm i react-window
+
+npm i react-markdown
+
+https://api.github.com/repos/${login}/${repo}/readme
